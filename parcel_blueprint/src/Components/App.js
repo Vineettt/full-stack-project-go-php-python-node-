@@ -4,6 +4,16 @@ import styled from 'styled-components';
 
 import AppProvider from './AppProvider';
 import { AppContext } from './AppProvider.js';
+
+import GoProvider from './GoProvider';
+import { GoContext } from './GoProvider.js';
+
+import PythonProvider from './PythonProvider';
+import { PythonContext } from './PythonProvider.js';
+
+import PHPProvider from './PHPProvider';
+import { PHPContext } from './PHPProvider.js';
+
 import { navigate, useRoutes } from 'hookrouter';
 
 import { GS } from './GS.js';
@@ -85,22 +95,40 @@ function App() {
         <AppProvider>
             <AppContext.Consumer>
                 {({ sidebar, setSidebar, path }) => (
-                    <StyledApp className={sidebar ? 'sidebar-open' : 'sidebar-close'}>
-                        <GS />
-                        <div id="sidebar">
-                            <div id="sidebar-top" className={sidebar ? 'sidebar-open' : 'sidebar-close'}>
-                                <div className={`link ${path === '/' ? 'selected' : ''}`} onClick={() => navigate('/')}>Dashboard</div>
-                                <div className={`link ${path === '/cube' ? 'selected' : ''}`} onClick={() => navigate('/cube')}>Cube</div>
-                            </div>
-                            <div className="flex-filter"></div>
-                            <div id="sidebar-bottom">
-                                <img id="sidebar-toggle" src="/images/download.png" onClick={() => setSidebar(!sidebar)} />
-                            </div>
-                        </div>
-                        <div id="content">
-                            {routeResult}
-                        </div>
-                    </StyledApp>
+                    <GoProvider>
+                        <GoContext.Consumer>
+                            {({ }) => (
+                                <PythonProvider>
+                                    <PythonContext.Consumer>
+                                        {({ }) => (
+                                            <PHPProvider>
+                                                <PHPContext.Consumer>
+                                                    {({ }) => (
+                                                        <StyledApp className={sidebar ? 'sidebar-open' : 'sidebar-close'}>
+                                                            <GS />
+                                                            <div id="sidebar">
+                                                                <div id="sidebar-top" className={sidebar ? 'sidebar-open' : 'sidebar-close'}>
+                                                                    <div className={`link ${path === '/' ? 'selected' : ''}`} onClick={() => navigate('/')}>Dashboard</div>
+                                                                    <div className={`link ${path === '/cube' ? 'selected' : ''}`} onClick={() => navigate('/cube')}>Cube</div>
+                                                                </div>
+                                                                <div className="flex-filter"></div>
+                                                                <div id="sidebar-bottom">
+                                                                    <img id="sidebar-toggle" src="/images/download.png" onClick={() => setSidebar(!sidebar)} />
+                                                                </div>
+                                                            </div>
+                                                            <div id="content">
+                                                                {routeResult}
+                                                            </div>
+                                                        </StyledApp>
+                                                    )}
+                                                </PHPContext.Consumer>
+                                            </PHPProvider>
+                                        )}
+                                    </PythonContext.Consumer>
+                                </PythonProvider>
+                            )}
+                        </GoContext.Consumer>
+                    </GoProvider>
                 )}
             </AppContext.Consumer>
         </AppProvider>

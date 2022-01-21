@@ -1,14 +1,19 @@
-import React, { useEffect, useState, createContext } from 'react';
-import { usePath } from 'hookrouter';
+import React, {useEffect, useState, createContext} from 'react';
 
-export const AppContext = createContext()
-export default function (props) {
-    const path = usePath();
-    const [route, setRoute] = useState('dashboard');
-    const [sidebar, setSidebar] = useState(true);
+export const GoContext = createContext()
+export default function(props){
 
     const [rs, setRs] = useState(0);
     const [ws, setWs] = useState(null);
+
+    const request = async(type, data) => {
+        let payload = {
+            jwt:  null,
+            type,
+            data
+        };
+        ws.send(JSON.stringify(payload));
+    }
 
     const heartbeat = async(ws) =>{
         setTimeout(function (){
@@ -22,6 +27,14 @@ export default function (props) {
             console.log(open_event);
             ws.onmessage = function(msg_event){
                 console.log(msg_event);
+                let tjo = JSON.parse(msg_event.data);
+                switch(tjo['type']){
+                    case "test-response-from-go-server":
+                        console.log(tjo['data']);
+                        break;
+                    default:
+                        break;
+                }
             }
             ws.onclose = function(close_event){
                 console.log(close_event);
@@ -30,27 +43,21 @@ export default function (props) {
                 console.log(error_event);
 
             }
+            request('go-client-test-msg', 'Hello go server from client.');
         }
     }
 
     useEffect(() => {
-        if (ws == null) { setWs(new WebSocket("ws://localhost:1300/ws")) }
+        if (ws == null) { setWs(new WebSocket("ws://localhost:1200/ws")) }
         if (ws !== null && rs == 0) { configureWebSocket(); heartbeat(ws); }
     }, [ ws, rs]);
 
 
-    useEffect(() => {
-        console.log(path);
-    }, [path])
-
     return (
-        <AppContext.Provider value={{
-            sidebar,
-            setSidebar,
-            path,
+        <GoContext.Provider value = {{
             rs
         }}>
-            {props.children}
-        </AppContext.Provider>
+        {props.children}
+        </GoContext.Provider>
     )
 }

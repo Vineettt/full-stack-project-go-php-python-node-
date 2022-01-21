@@ -1,12 +1,9 @@
-import React, { useEffect, useState, createContext } from 'react';
-import { usePath } from 'hookrouter';
+import React, {useEffect, useState, createContext} from 'react';
 
-export const AppContext = createContext()
-export default function (props) {
-    const path = usePath();
-    const [route, setRoute] = useState('dashboard');
-    const [sidebar, setSidebar] = useState(true);
+export const PythonContext = createContext()
+export default function(props){
 
+    
     const [rs, setRs] = useState(0);
     const [ws, setWs] = useState(null);
 
@@ -34,23 +31,16 @@ export default function (props) {
     }
 
     useEffect(() => {
-        if (ws == null) { setWs(new WebSocket("ws://localhost:1300/ws")) }
+        if (ws == null) { setWs(new WebSocket("ws://localhost:1600/ws")) }
         if (ws !== null && rs == 0) { configureWebSocket(); heartbeat(ws); }
     }, [ ws, rs]);
 
 
-    useEffect(() => {
-        console.log(path);
-    }, [path])
-
     return (
-        <AppContext.Provider value={{
-            sidebar,
-            setSidebar,
-            path,
+        <PythonContext.Provider value = {{
             rs
         }}>
-            {props.children}
-        </AppContext.Provider>
+        {props.children}
+        </PythonContext.Provider>
     )
 }
