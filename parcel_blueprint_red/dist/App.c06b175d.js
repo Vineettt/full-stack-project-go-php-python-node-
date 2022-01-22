@@ -35355,11 +35355,38 @@ function _default(props) {
       ws = _useState8[0],
       setWs = _useState8[1];
 
-  var heartbeat = /*#__PURE__*/function () {
-    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(ws) {
+  var request = /*#__PURE__*/function () {
+    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(type, data) {
+      var payload;
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
+            case 0:
+              payload = {
+                jwt: null,
+                type: type,
+                data: data
+              };
+              ws.send(JSON.stringify(payload));
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function request(_x, _x2) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var heartbeat = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(ws) {
+      return _regenerator.default.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
             case 0:
               setTimeout(function () {
                 if (rs !== ws.readyState) {
@@ -35371,28 +35398,39 @@ function _default(props) {
 
             case 1:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     }));
 
-    return function heartbeat(_x) {
-      return _ref.apply(this, arguments);
+    return function heartbeat(_x3) {
+      return _ref2.apply(this, arguments);
     };
   }();
 
   var configureWebSocket = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-      return _regenerator.default.wrap(function _callee2$(_context2) {
+    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+      return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
               ws.onopen = function (open_event) {
                 console.log(open_event);
 
                 ws.onmessage = function (msg_event) {
                   console.log(msg_event);
+                  var tjo = JSON.parse(msg_event.data);
+                  console.log(tjo);
+
+                  switch (tjo['type']) {
+                    case "test-response-from-node-server":
+                      console.log(tjo['data']);
+                      break;
+
+                    default:
+                      break;
+                  }
                 };
 
                 ws.onclose = function (close_event) {
@@ -35402,18 +35440,20 @@ function _default(props) {
                 ws.onerror = function (error_event) {
                   console.log(error_event);
                 };
+
+                request('node-client-test-msg', 'Hello node server from client.');
               };
 
             case 1:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
         }
-      }, _callee2);
+      }, _callee3);
     }));
 
     return function configureWebSocket() {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 
@@ -35634,11 +35674,38 @@ function _default(props) {
       ws = _useState4[0],
       setWs = _useState4[1];
 
-  var heartbeat = /*#__PURE__*/function () {
-    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(ws) {
+  var request = /*#__PURE__*/function () {
+    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(type, data) {
+      var payload;
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
+            case 0:
+              payload = {
+                jwt: null,
+                type: type,
+                data: data
+              };
+              ws.send(JSON.stringify(payload));
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function request(_x, _x2) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var heartbeat = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(ws) {
+      return _regenerator.default.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
             case 0:
               setTimeout(function () {
                 if (rs !== ws.readyState) {
@@ -35650,28 +35717,38 @@ function _default(props) {
 
             case 1:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     }));
 
-    return function heartbeat(_x) {
-      return _ref.apply(this, arguments);
+    return function heartbeat(_x3) {
+      return _ref2.apply(this, arguments);
     };
   }();
 
   var configureWebSocket = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-      return _regenerator.default.wrap(function _callee2$(_context2) {
+    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+      return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
               ws.onopen = function (open_event) {
                 console.log(open_event);
 
                 ws.onmessage = function (msg_event) {
                   console.log(msg_event);
+                  var tjo = JSON.parse(msg_event.data);
+
+                  switch (tjo['type']) {
+                    case "test-response-from-python-server":
+                      console.log(tjo['data']);
+                      break;
+
+                    default:
+                      break;
+                  }
                 };
 
                 ws.onclose = function (close_event) {
@@ -35681,24 +35758,26 @@ function _default(props) {
                 ws.onerror = function (error_event) {
                   console.log(error_event);
                 };
+
+                request('python-client-test-msg', 'Hello python server from client.');
               };
 
             case 1:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
         }
-      }, _callee2);
+      }, _callee3);
     }));
 
     return function configureWebSocket() {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 
   (0, _react.useEffect)(function () {
     if (ws == null) {
-      setWs(new WebSocket("ws://localhost:1600/ws"));
+      setWs(new WebSocket("ws://localhost:1600"));
     }
 
     if (ws !== null && rs == 0) {
@@ -35721,9 +35800,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.PHPContext = void 0;
 exports.default = _default;
 
-var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -35741,6 +35820,33 @@ exports.PHPContext = PHPContext;
 function _default(props) {
   var _this = this;
 
+  var request = /*#__PURE__*/function () {
+    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(type, data) {
+      var payload;
+      return _regenerator.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              payload = {
+                jwt: null,
+                type: type,
+                data: data
+              };
+              ws.send(JSON.stringify(payload));
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function request(_x, _x2) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
   var _useState = (0, _react.useState)(0),
       _useState2 = (0, _slicedToArray2.default)(_useState, 2),
       rs = _useState2[0],
@@ -35752,10 +35858,10 @@ function _default(props) {
       setWs = _useState4[1];
 
   var heartbeat = /*#__PURE__*/function () {
-    var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(ws) {
-      return _regenerator.default.wrap(function _callee$(_context) {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(ws) {
+      return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
               setTimeout(function () {
                 if (rs !== ws.readyState) {
@@ -35767,28 +35873,38 @@ function _default(props) {
 
             case 1:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     }));
 
-    return function heartbeat(_x) {
-      return _ref.apply(this, arguments);
+    return function heartbeat(_x3) {
+      return _ref2.apply(this, arguments);
     };
   }();
 
   var configureWebSocket = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-      return _regenerator.default.wrap(function _callee2$(_context2) {
+    var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+      return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
               ws.onopen = function (open_event) {
                 console.log(open_event);
 
                 ws.onmessage = function (msg_event) {
                   console.log(msg_event);
+                  var tjo = JSON.parse(msg_event.data);
+
+                  switch (tjo['type']) {
+                    case "test-response-from-php-server":
+                      console.log(tjo['data']);
+                      break;
+
+                    default:
+                      break;
+                  }
                 };
 
                 ws.onclose = function (close_event) {
@@ -35798,24 +35914,26 @@ function _default(props) {
                 ws.onerror = function (error_event) {
                   console.log(error_event);
                 };
+
+                request('php-client-test-msg', 'Hello php server from client.');
               };
 
             case 1:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
         }
-      }, _callee2);
+      }, _callee3);
     }));
 
     return function configureWebSocket() {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 
   (0, _react.useEffect)(function () {
     if (ws == null) {
-      setWs(new WebSocket("ws://localhost:1701"));
+      setWs(new WebSocket("ws://localhost:1700"));
     }
 
     if (ws !== null && rs == 0) {
@@ -35829,7 +35947,7 @@ function _default(props) {
     }
   }, props.children);
 }
-},{"@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","react":"../node_modules/react/index.js"}],"Components/GS.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","react":"../node_modules/react/index.js"}],"Components/GS.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35956,6 +36074,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
+var _PythonProvider = require("./PythonProvider");
+
 var _templateObject;
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -35967,11 +36087,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var StyledCubeBack = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n    transform: translateZ(-1000px) rotateY(-180deg);\n"])));
 
 function CubeBack() {
+  var _useContext = (0, _react.useContext)(_PythonProvider.PythonContext),
+      rs = _useContext.rs;
+
   return /*#__PURE__*/_react.default.createElement(StyledCubeBack, {
     className: "cube-face"
-  }, "Back");
+  }, "Python WebSocket State -- (", rs, ")");
 }
-},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Components/CubeLeft.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./PythonProvider":"Components/PythonProvider.js"}],"Components/CubeLeft.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35985,6 +36108,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
+var _PHPProvider = require("./PHPProvider");
+
 var _templateObject;
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -35996,11 +36121,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var StyledCubeLeft = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n    transform: rotateY(-90deg) translateZ(1000px);\n"])));
 
 function CubeLeft() {
+  var _useContext = (0, _react.useContext)(_PHPProvider.PHPContext),
+      rs = _useContext.rs;
+
   return /*#__PURE__*/_react.default.createElement(StyledCubeLeft, {
     className: "cube-face"
-  }, "Left");
+  }, "PHP WebSocket State -- (", rs, ")");
 }
-},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Components/CubeTop.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./PHPProvider":"Components/PHPProvider.js"}],"Components/CubeTop.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36278,7 +36406,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "a0uth.local.com" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41183" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42967" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

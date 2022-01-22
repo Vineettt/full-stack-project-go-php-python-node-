@@ -1,6 +1,13 @@
 const utils = require('./utliz.js');
 const uWs = require('uWebSockets.js');
 
+function payload(type, data){
+    let payload = {
+        type, data
+    }
+    return payload;
+}
+
 const app = uWs.App({}).ws('/ws', {
     compression: uWs.SHARED_COMPRESSOR,
     maxPayloadLength: 16 * 1024 * 1024,
@@ -26,7 +33,14 @@ const app = uWs.App({}).ws('/ws', {
         utils.logData('A WebSocket connected via address: ' + utils.ArrayBufferToString(ws.getRemoteAddressAsText()) + '!');
     },
     message: async (ws, message, isBinary) => {
-
+        let tjo = JSON.parse(utils.ArrayBufferToString(message));
+        switch(tjo['type']){
+            case "node-client-test-msg":
+                ws.send(JSON.stringify(payload('test-response-from-node-server', 'Hello from node server')))
+                break;
+            default:
+                break;
+        }
     },
     drain: (ws) => {
 
