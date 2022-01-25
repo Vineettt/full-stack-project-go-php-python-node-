@@ -21,6 +21,8 @@ import { HaloCell } from './HaloCell.js';
 import CellProvider from './CellProvider';
 import { CellContext } from './CellProvider.js';
 
+import { CellSelector } from './CellSelector';
+
 
 const HaloWheel = styled.div`
 position: relative;
@@ -95,7 +97,7 @@ function App() {
                     HaloIndex,
                     microIndex,
                     HaloZoomCss,
-                    HaloAngleCss, setHaloIndex }) => (
+                    HaloAngleCss, setHaloIndex, S }) => (
                     <GoProvider>
                         <GoContext.Consumer>
                             {({ }) => (
@@ -119,8 +121,9 @@ function App() {
                                                                                         </HaloCellWrapper>
                                                                                     ))
                                                                                 }
-                                                                            </HaloWheel>
+                                                                            </HaloWheel>    
                                                                         </div>
+                                                                        <CellSelector />
                                                                     </StyledApp>
                                                                 )}
                                                             </CellContext.Consumer>

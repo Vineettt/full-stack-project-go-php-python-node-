@@ -34001,7 +34001,201 @@ function HaloCell(_ref) {
     }
   }));
 }
-},{"@babel/runtime/helpers/toConsumableArray":"../node_modules/@babel/runtime/helpers/toConsumableArray.js","@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./CellProvider.js":"Components/CellProvider.js"}],"Components/App.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/toConsumableArray":"../node_modules/@babel/runtime/helpers/toConsumableArray.js","@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./CellProvider.js":"Components/CellProvider.js"}],"Components/Button.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Button = Button;
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _templateObject;
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var StyledButton = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n\tposition: relative;\n\twidth: 11.8rem;\n\theight: 3.5rem;\n\t\t\n\tcolor: #26dafd;\t\n\tbackground-color: rgba(4,35,41,0.65);\n\t\n\t&:hover { cursor: pointer; }\n\t\n\t.btn-border {\n\t\tposition: absolute;\n\t\tborder-color: #029dbb;\n\t\tbox-shadow: 0 0 4px rgba(2,157,187,0.65);\n\t\tborder-style: solid;\n\t\t\n\t\ttransition: all 250ms ease-in;\n\t\t\n\t\t&.tb {\n\t\t\ttop: 0px;\n\t\t\tleft: 50%;\n\t\t\twidth: 100%;\n\t\t\ttransform: translate(-50%,0);\n\t\t\tborder-width: 1px 0 0 0;\n\t\t}\n\t\t&.rb {\n\t\t\ttop: 50%;\n\t\t\tright: 0;\n\t\t\theight: 100%;\n\t\t\ttransform: translate(0, -50%);\n\t\t\tborder-width: 0 0 0 1px;\t\n\t\t}\n\t\t\n\t\t&.bb {\n\t\t\tleft: 50%;\n\t\t\twidth: 100%;\n\t\t\tbottom: 0px;\n\t\t\ttransform: translate(-50%,0);\n\t\t\tborder-width: 0 0 1px 0;\n\t\t}\n\t\t&.lb {\n\t\t\ttop: 50%;\n\t\t\tleft: 0px;\n\t\t\theight: 100%;\n\t\t\ttransform: translate(0, -50%);\n\t\t\tborder-width: 0 0 0 1px;\t\t\t\n\t\t}\n\t}\n\t\n\t.btn-corner {\n\t\twidth: 8px;\n\t\theight: 8px;\n\t\tborder-color: #acf9fb;\n\t\tbox-shadow: 0 0 4px -2px rgba(172,249,251,0.65);\n\t\t\n\t\tz-index: 2;\n\t\topacity: 1;\n\t\tposition: absolute;\n\t\ttransition: all 250ms ease-in;\n\t\tborder-style: solid;\n\t\t\n\t\t&.tlc {\n\t\t\tleft: -1px;\n\t\t\ttop: -1px;\n\t\t\tborder-width: 1px 0 0 1px;\n\t\t}\n\t\t&.trc {\n\t\t\tright: -1px;\n\t\t\ttop: -1px;\n\t\t\tborder-width: 1px 1px 0 0;\n\t\t}\n\t\t&.blc {\n\t\t\tleft: -1px;\n\t\t\tbottom: -1px;\n\t\t\tborder-width: 0 0 1px 1px;\n\t\t}\n\t\t&.brc {\n\t\t\tright: -1px;\n\t\t\tbottom: -1px;\n\t\t\tborder-width: 0 1px 1px 0;\n\t\t}\n\t}\n\t\n\t.btn-text {\n\t\tposition: absolute;\n\t\t\n\t\ttop: 0px;\n\t\tleft: 0px;\n\t\t\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tdisplay: flex;\n\t\talign-items: center;\n\t\tjustify-content: center;\t\t\t\n\t}\n\t\n\t.btn-background-fader {\n\t\tposition: absolute;\n\t\t\n\t\ttop: 0px;\n\t\tleft: 0px;\n\t\t\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t\n\t\topacity: 0;\n\t\tbackground-color: rgba(172,249,251,1);\n\t}\n\t\n\t&.true {\n\t\t.btn-background-fader {\n\t\t\tanimation: btn-clicked 250ms ease-out 0ms 1;\n\t\t}\n\t}\n\t\n\t@keyframes btn-clicked {\n\t\t0% {\n\t\t\topacity: 1;\t\n\t\t}\n\t\t100% {\n\t\t\topacity: 0;\t\n\t\t}\t\n\t}\n"])));
+
+function Button(_ref) {
+  var btnText = _ref.btnText,
+      clickFunc = _ref.clickFunc;
+
+  var sleep = function sleep(ms) {
+    return new Promise(function (resolve) {
+      return setTimeout(resolve, ms);
+    });
+  };
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = (0, _slicedToArray2.default)(_useState, 2),
+      clicked = _useState2[0],
+      setClicked = _useState2[1];
+
+  var handleClickBtn = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+      return _regenerator.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              setClicked(true);
+              _context.next = 3;
+              return sleep(250);
+
+            case 3:
+              setClicked(false);
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function handleClickBtn() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  (0, _react.useEffect)(function () {
+    if (clicked == true) {
+      clickFunc();
+    }
+  }, [clicked]);
+  return /*#__PURE__*/_react.default.createElement(StyledButton, {
+    className: clicked ? 'true' : 'false',
+    onClick: function onClick(e) {
+      return handleClickBtn();
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn-border tb"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn-border rb"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn-border bb"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn-border lb"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn-corner tlc"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn-corner trc"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn-corner blc"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn-corner brc"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn-text"
+  }, btnText), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn-background-fader"
+  }));
+}
+},{"@babel/runtime/helpers/asyncToGenerator":"../node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","@babel/runtime/regenerator":"../node_modules/@babel/runtime/regenerator/index.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Components/CellSelector.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CellSelector = CellSelector;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _AppProvider = require("./AppProvider.js");
+
+var _Button = require("./Button.js");
+
+var _templateObject;
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var StyledCellSelector = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n    position: absolute;\n    bottom:2rem;\n    left:50%;\n    transform: translateX(-50%);\n    display: flex;\n"])));
+
+function CellSelector() {
+  var _useContext = (0, _react.useContext)(_AppProvider.AppContext),
+      setHaloIndex = _useContext.setHaloIndex;
+
+  var handleCellSelection = function handleCellSelection(cell) {
+    switch (cell) {
+      case 'home':
+        setHaloIndex(0);
+        break;
+
+      case 'node':
+        setHaloIndex(4);
+        break;
+
+      case 'go':
+        setHaloIndex(3);
+        break;
+
+      case 'php':
+        setHaloIndex(1);
+        break;
+
+      case 'python':
+        setHaloIndex(2);
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  return /*#__PURE__*/_react.default.createElement(StyledCellSelector, null, /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    btnText: "Home",
+    clickFunc: function clickFunc() {
+      return handleCellSelection('home');
+    }
+  }), /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    btnText: "NodeJs",
+    clickFunc: function clickFunc() {
+      return handleCellSelection('node');
+    }
+  }), /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    btnText: "Go",
+    clickFunc: function clickFunc() {
+      return handleCellSelection('go');
+    }
+  }), /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    btnText: "Python",
+    clickFunc: function clickFunc() {
+      return handleCellSelection('python');
+    }
+  }), /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    btnText: "PHP",
+    clickFunc: function clickFunc() {
+      return handleCellSelection('php');
+    }
+  }), /*#__PURE__*/_react.default.createElement(_Button.Button, {
+    btnText: "Log Out",
+    clickFunc: function clickFunc() {
+      return handleCellSelection('logout');
+    }
+  }));
+}
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./AppProvider.js":"Components/AppProvider.js","./Button.js":"Components/Button.js"}],"Components/App.js":[function(require,module,exports) {
 "use strict";
 
 var _objectDestructuringEmpty2 = _interopRequireDefault(require("@babel/runtime/helpers/objectDestructuringEmpty"));
@@ -34038,6 +34232,8 @@ var _CellProvider = _interopRequireDefault(require("./CellProvider"));
 
 var _CellProvider2 = require("./CellProvider.js");
 
+var _CellSelector = require("./CellSelector");
+
 var _templateObject, _templateObject2, _templateObject3;
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -34066,7 +34262,8 @@ function App() {
         microIndex = _ref.microIndex,
         HaloZoomCss = _ref.HaloZoomCss,
         HaloAngleCss = _ref.HaloAngleCss,
-        setHaloIndex = _ref.setHaloIndex;
+        setHaloIndex = _ref.setHaloIndex,
+        S = _ref.S;
     return /*#__PURE__*/_react.default.createElement(_GoProvider.default, null, /*#__PURE__*/_react.default.createElement(_GoProvider2.GoContext.Consumer, null, function (_ref2) {
       (0, _objectDestructuringEmpty2.default)(_ref2);
       return /*#__PURE__*/_react.default.createElement(_PythonProvider.default, null, /*#__PURE__*/_react.default.createElement(_PythonProvider2.PythonContext.Consumer, null, function (_ref3) {
@@ -34088,7 +34285,7 @@ function App() {
               }, /*#__PURE__*/_react.default.createElement(_HaloCell.HaloCell, {
                 index: index + 1
               }));
-            }))));
+            }))), /*#__PURE__*/_react.default.createElement(_CellSelector.CellSelector, null));
           }));
         }));
       }));
@@ -34099,7 +34296,7 @@ function App() {
 if (document.querySelector('#react_root')) {
   _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), document.querySelector("#react_root"));
 }
-},{"@babel/runtime/helpers/objectDestructuringEmpty":"../node_modules/@babel/runtime/helpers/objectDestructuringEmpty.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./AppProvider":"Components/AppProvider.js","./AppProvider.js":"Components/AppProvider.js","./GoProvider":"Components/GoProvider.js","./GoProvider.js":"Components/GoProvider.js","./PythonProvider":"Components/PythonProvider.js","./PythonProvider.js":"Components/PythonProvider.js","./PHPProvider":"Components/PHPProvider.js","./PHPProvider.js":"Components/PHPProvider.js","./GS.js":"Components/GS.js","./HaloCell.js":"Components/HaloCell.js","./CellProvider":"Components/CellProvider.js","./CellProvider.js":"Components/CellProvider.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/objectDestructuringEmpty":"../node_modules/@babel/runtime/helpers/objectDestructuringEmpty.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./AppProvider":"Components/AppProvider.js","./AppProvider.js":"Components/AppProvider.js","./GoProvider":"Components/GoProvider.js","./GoProvider.js":"Components/GoProvider.js","./PythonProvider":"Components/PythonProvider.js","./PythonProvider.js":"Components/PythonProvider.js","./PHPProvider":"Components/PHPProvider.js","./PHPProvider.js":"Components/PHPProvider.js","./GS.js":"Components/GS.js","./HaloCell.js":"Components/HaloCell.js","./CellProvider":"Components/CellProvider.js","./CellProvider.js":"Components/CellProvider.js","./CellSelector":"Components/CellSelector.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -34127,7 +34324,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "a0uth.local.com" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41663" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42895" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
