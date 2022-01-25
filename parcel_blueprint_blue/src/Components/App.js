@@ -18,6 +18,10 @@ import { GS } from './GS.js';
 
 import { HaloCell } from './HaloCell.js';
 
+import CellProvider from './CellProvider';
+import { CellContext } from './CellProvider.js';
+
+
 const HaloWheel = styled.div`
 position: relative;
 	
@@ -101,20 +105,26 @@ function App() {
                                             <PHPProvider>
                                                 <PHPContext.Consumer>
                                                     {({ }) => (
-                                                        <StyledApp >
-                                                            <GS />
-                                                            <div id="halo-scene">
-                                                                <HaloWheel HaloZoomCss={HaloZoomCss} HaloAngleCss={HaloAngleCss}>
-                                                                    {
-                                                                        HaloCount > 0 && HaloCells.map((hs, index) => (
-                                                                            <HaloCellWrapper key={index} transform={HaloCells[index]} className={`styled-halo-cell-wrapper window-${index + 1}-${microIndex}`}>
-                                                                                <HaloCell index={index + 1}></HaloCell>
-                                                                            </HaloCellWrapper>
-                                                                        ))
-                                                                    }
-                                                                </HaloWheel>
-                                                            </div>
-                                                        </StyledApp>
+                                                        <CellProvider>
+                                                            <CellContext.Consumer>
+                                                                {({ }) => (
+                                                                    <StyledApp >
+                                                                        <GS />
+                                                                        <div id="halo-scene">
+                                                                            <HaloWheel HaloZoomCss={HaloZoomCss} HaloAngleCss={HaloAngleCss}>
+                                                                                {
+                                                                                    HaloCount > 0 && HaloCells.map((hs, index) => (
+                                                                                        <HaloCellWrapper key={index} transform={HaloCells[index]} className={`styled-halo-cell-wrapper window-${index + 1}-${microIndex}`}>
+                                                                                            <HaloCell index={index + 1}></HaloCell>
+                                                                                        </HaloCellWrapper>
+                                                                                    ))
+                                                                                }
+                                                                            </HaloWheel>
+                                                                        </div>
+                                                                    </StyledApp>
+                                                                )}
+                                                            </CellContext.Consumer>
+                                                        </CellProvider>
                                                     )}
                                                 </PHPContext.Consumer>
                                             </PHPProvider>

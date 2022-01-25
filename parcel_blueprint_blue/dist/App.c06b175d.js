@@ -33656,15 +33656,177 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var GS = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n    .flex-filter{flex-grow:1}\n"])));
 exports.GS = GS;
-},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Components/Go.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"../node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":[function(require,module,exports) {
+var arrayLikeToArray = require("./arrayLikeToArray.js");
 
-},{}],"Components/Python.js":[function(require,module,exports) {
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return arrayLikeToArray(arr);
+}
 
-},{}],"Components/Node.js":[function(require,module,exports) {
+module.exports = _arrayWithoutHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{"./arrayLikeToArray.js":"../node_modules/@babel/runtime/helpers/arrayLikeToArray.js"}],"../node_modules/@babel/runtime/helpers/iterableToArray.js":[function(require,module,exports) {
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
 
-},{}],"Components/PHP.js":[function(require,module,exports) {
+module.exports = _iterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{}],"../node_modules/@babel/runtime/helpers/nonIterableSpread.js":[function(require,module,exports) {
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
 
-},{}],"Components/CellProvider.js":[function(require,module,exports) {
+module.exports = _nonIterableSpread, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{}],"../node_modules/@babel/runtime/helpers/toConsumableArray.js":[function(require,module,exports) {
+var arrayWithoutHoles = require("./arrayWithoutHoles.js");
+
+var iterableToArray = require("./iterableToArray.js");
+
+var unsupportedIterableToArray = require("./unsupportedIterableToArray.js");
+
+var nonIterableSpread = require("./nonIterableSpread.js");
+
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
+}
+
+module.exports = _toConsumableArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{"./arrayWithoutHoles.js":"../node_modules/@babel/runtime/helpers/arrayWithoutHoles.js","./iterableToArray.js":"../node_modules/@babel/runtime/helpers/iterableToArray.js","./unsupportedIterableToArray.js":"../node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js","./nonIterableSpread.js":"../node_modules/@babel/runtime/helpers/nonIterableSpread.js"}],"Components/Go.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Go = Go;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _GoProvider = require("./GoProvider");
+
+var _templateObject;
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var StyledGo = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n    position: relative;\n    top:0px;\n    left:0px;\n    height: calc(100% - 6rem);\n    border: 1px solid #f00;\n    .cell-language-title{\n        position: relative;\n        color: #ccc;\n        font-size: 1.6rem;\n        text-align:center;\n        width:100%;\n        display: block;\n\n    }\n"])));
+
+function Go() {
+  var _useContext = (0, _react.useContext)(_GoProvider.GoContext),
+      rs = _useContext.rs;
+
+  return /*#__PURE__*/_react.default.createElement(StyledGo, null, /*#__PURE__*/_react.default.createElement("span", {
+    className: "cell-language-title"
+  }, "Go WebSocket State - (".concat(rs, ")")));
+}
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./GoProvider":"Components/GoProvider.js"}],"Components/Python.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Python = Python;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _PythonProvider = require("./PythonProvider");
+
+var _templateObject;
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var StyledPython = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n    position: relative;\n    top:0px;\n    left:0px;\n    height: calc(100% - 6rem);\n    border: 1px solid #f00;\n    .cell-language-title{\n        position: relative;\n        color: #ccc;\n        font-size: 1.6rem;\n        text-align:center;\n        width:100%;\n        display: block;\n\n    }\n"])));
+
+function Python() {
+  var _useContext = (0, _react.useContext)(_PythonProvider.PythonContext),
+      rs = _useContext.rs;
+
+  return /*#__PURE__*/_react.default.createElement(StyledPython, null, /*#__PURE__*/_react.default.createElement("span", {
+    className: "cell-language-title"
+  }, "Python WebSocket State - (".concat(rs, ")")));
+}
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./PythonProvider":"Components/PythonProvider.js"}],"Components/Node.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Node = Node;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _AppProvider = require("./AppProvider.js");
+
+var _templateObject;
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var StyledNode = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n    position: relative;\n    top:0px;\n    left:0px;\n    height: calc(100% - 6rem);\n    border: 1px solid #f00;\n\n    .cell-language-title{\n        position: relative;\n        color: #ccc;\n        font-size: 1.6rem;\n        text-align:center;\n        width:100%;\n        display: block;\n\n    }\n"])));
+
+function Node() {
+  var _useContext = (0, _react.useContext)(_AppProvider.AppContext),
+      rs = _useContext.rs;
+
+  return /*#__PURE__*/_react.default.createElement(StyledNode, null, /*#__PURE__*/_react.default.createElement("span", {
+    className: "cell-language-title"
+  }, "NodeJs WebSocket State - (".concat(rs, ")")));
+}
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./AppProvider.js":"Components/AppProvider.js"}],"Components/PHP.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.PHP = PHP;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _PHPProvider = require("./PHPProvider");
+
+var _templateObject;
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var StyledPHP = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n    position: relative;\n    top:0px;\n    left:0px;\n    height: calc(100% - 6rem);\n    border: 1px solid #f00;\n    .cell-language-title{\n        position: relative;\n        color: #ccc;\n        font-size: 1.6rem;\n        text-align:center;\n        width:100%;\n        display: block;\n    }\n"])));
+
+function PHP() {
+  var _useContext = (0, _react.useContext)(_PHPProvider.PHPContext),
+      rs = _useContext.rs;
+
+  return /*#__PURE__*/_react.default.createElement(StyledPHP, null, /*#__PURE__*/_react.default.createElement("span", {
+    className: "cell-language-title"
+  }, "PHP WebSocket State - (".concat(rs, ")")));
+}
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./PHPProvider":"Components/PHPProvider.js"}],"Components/CellProvider.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33700,22 +33862,22 @@ function _default(props) {
       one = _useState2[0],
       setOne = _useState2[1];
 
-  var _useState3 = (0, _react.useState)([]),
+  var _useState3 = (0, _react.useState)([/*#__PURE__*/_react.default.createElement(_PHP.PHP, null)]),
       _useState4 = (0, _slicedToArray2.default)(_useState3, 2),
       two = _useState4[0],
       setTwo = _useState4[1];
 
-  var _useState5 = (0, _react.useState)([]),
+  var _useState5 = (0, _react.useState)([/*#__PURE__*/_react.default.createElement(_Python.Python, null)]),
       _useState6 = (0, _slicedToArray2.default)(_useState5, 2),
       three = _useState6[0],
       setThree = _useState6[1];
 
-  var _useState7 = (0, _react.useState)([]),
+  var _useState7 = (0, _react.useState)([/*#__PURE__*/_react.default.createElement(_Go.Go, null)]),
       _useState8 = (0, _slicedToArray2.default)(_useState7, 2),
       four = _useState8[0],
       setFour = _useState8[1];
 
-  var _useState9 = (0, _react.useState)([]),
+  var _useState9 = (0, _react.useState)([/*#__PURE__*/_react.default.createElement(_Node.Node, null)]),
       _useState10 = (0, _slicedToArray2.default)(_useState9, 2),
       five = _useState10[0],
       setFive = _useState10[1];
@@ -33754,7 +33916,7 @@ function _default(props) {
     }
   };
 
-  return /*#__PURE__*/React.createElement(CellContext.Provider, {
+  return /*#__PURE__*/_react.default.createElement(CellContext.Provider, {
     value: {
       one: one,
       setOne: setOne,
@@ -33782,13 +33944,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.HaloCell = HaloCell;
 
+var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
 var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
-
-var _AppProvider = require("./AppProvider.js");
 
 var _CellProvider = require("./CellProvider.js");
 
@@ -33800,13 +33964,44 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var StyledHaloCell = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n  background: hsla(199,100%,29%,.2);\n  border:1px solid #000;\n  width: calc(100% - 1rem);\n  height: calc(100% - 1rem);\n\n  margin-top: .5rem;\n  margin-left: .5rem;\n\n\n\n"])));
+var StyledHaloCell = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n  background: hsla(199,100%,29%,.2);\n  border:1px solid #000;\n  width: calc(100% - 1rem);\n  height: calc(100% - 1rem);\n\n  margin-top: .5rem;\n  margin-left: .5rem;\n"])));
 
 function HaloCell(_ref) {
   var index = _ref.index;
-  return /*#__PURE__*/_react.default.createElement(StyledHaloCell, null, "Halo Cell...");
+
+  var _useState = (0, _react.useState)([]),
+      _useState2 = (0, _slicedToArray2.default)(_useState, 2),
+      cellComponents = _useState2[0],
+      setCellComponents = _useState2[1];
+
+  var _useContext = (0, _react.useContext)(_CellProvider.CellContext),
+      returnCellComponents = _useContext.returnCellComponents,
+      updateCell = _useContext.updateCell,
+      updateToggle = _useContext.updateToggle;
+
+  var updateComponents = function updateComponents() {
+    var cell_components = returnCellComponents(index);
+    setCellComponents((0, _toConsumableArray2.default)(cell_components));
+  };
+
+  (0, _react.useEffect)(function () {
+    if (updateCell != null && updateCell === index) {
+      updateComponents();
+    }
+  }, [updateCell, updateToggle]);
+  (0, _react.useEffect)(function () {
+    updateComponents();
+  }, []);
+  return /*#__PURE__*/_react.default.createElement(StyledHaloCell, null, cellComponents.length > 0 && cellComponents.map(function (com, i) {
+    if (com !== null) {
+      return /*#__PURE__*/_react.default.createElement("span", {
+        className: "cell-com-wrapper",
+        key: i
+      }, com);
+    }
+  }));
 }
-},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./AppProvider.js":"Components/AppProvider.js","./CellProvider.js":"Components/CellProvider.js"}],"Components/App.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/toConsumableArray":"../node_modules/@babel/runtime/helpers/toConsumableArray.js","@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./CellProvider.js":"Components/CellProvider.js"}],"Components/App.js":[function(require,module,exports) {
 "use strict";
 
 var _objectDestructuringEmpty2 = _interopRequireDefault(require("@babel/runtime/helpers/objectDestructuringEmpty"));
@@ -33838,6 +34033,10 @@ var _PHPProvider2 = require("./PHPProvider.js");
 var _GS = require("./GS.js");
 
 var _HaloCell = require("./HaloCell.js");
+
+var _CellProvider = _interopRequireDefault(require("./CellProvider"));
+
+var _CellProvider2 = require("./CellProvider.js");
 
 var _templateObject, _templateObject2, _templateObject3;
 
@@ -33874,20 +34073,23 @@ function App() {
         (0, _objectDestructuringEmpty2.default)(_ref3);
         return /*#__PURE__*/_react.default.createElement(_PHPProvider.default, null, /*#__PURE__*/_react.default.createElement(_PHPProvider2.PHPContext.Consumer, null, function (_ref4) {
           (0, _objectDestructuringEmpty2.default)(_ref4);
-          return /*#__PURE__*/_react.default.createElement(StyledApp, null, /*#__PURE__*/_react.default.createElement(_GS.GS, null), /*#__PURE__*/_react.default.createElement("div", {
-            id: "halo-scene"
-          }, /*#__PURE__*/_react.default.createElement(HaloWheel, {
-            HaloZoomCss: HaloZoomCss,
-            HaloAngleCss: HaloAngleCss
-          }, HaloCount > 0 && HaloCells.map(function (hs, index) {
-            return /*#__PURE__*/_react.default.createElement(HaloCellWrapper, {
-              key: index,
-              transform: HaloCells[index],
-              className: "styled-halo-cell-wrapper window-".concat(index + 1, "-").concat(microIndex)
-            }, /*#__PURE__*/_react.default.createElement(_HaloCell.HaloCell, {
-              index: index + 1
-            }));
-          }))));
+          return /*#__PURE__*/_react.default.createElement(_CellProvider.default, null, /*#__PURE__*/_react.default.createElement(_CellProvider2.CellContext.Consumer, null, function (_ref5) {
+            (0, _objectDestructuringEmpty2.default)(_ref5);
+            return /*#__PURE__*/_react.default.createElement(StyledApp, null, /*#__PURE__*/_react.default.createElement(_GS.GS, null), /*#__PURE__*/_react.default.createElement("div", {
+              id: "halo-scene"
+            }, /*#__PURE__*/_react.default.createElement(HaloWheel, {
+              HaloZoomCss: HaloZoomCss,
+              HaloAngleCss: HaloAngleCss
+            }, HaloCount > 0 && HaloCells.map(function (hs, index) {
+              return /*#__PURE__*/_react.default.createElement(HaloCellWrapper, {
+                key: index,
+                transform: HaloCells[index],
+                className: "styled-halo-cell-wrapper window-".concat(index + 1, "-").concat(microIndex)
+              }, /*#__PURE__*/_react.default.createElement(_HaloCell.HaloCell, {
+                index: index + 1
+              }));
+            }))));
+          }));
         }));
       }));
     }));
@@ -33897,7 +34099,7 @@ function App() {
 if (document.querySelector('#react_root')) {
   _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), document.querySelector("#react_root"));
 }
-},{"@babel/runtime/helpers/objectDestructuringEmpty":"../node_modules/@babel/runtime/helpers/objectDestructuringEmpty.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./AppProvider":"Components/AppProvider.js","./AppProvider.js":"Components/AppProvider.js","./GoProvider":"Components/GoProvider.js","./GoProvider.js":"Components/GoProvider.js","./PythonProvider":"Components/PythonProvider.js","./PythonProvider.js":"Components/PythonProvider.js","./PHPProvider":"Components/PHPProvider.js","./PHPProvider.js":"Components/PHPProvider.js","./GS.js":"Components/GS.js","./HaloCell.js":"Components/HaloCell.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/objectDestructuringEmpty":"../node_modules/@babel/runtime/helpers/objectDestructuringEmpty.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./AppProvider":"Components/AppProvider.js","./AppProvider.js":"Components/AppProvider.js","./GoProvider":"Components/GoProvider.js","./GoProvider.js":"Components/GoProvider.js","./PythonProvider":"Components/PythonProvider.js","./PythonProvider.js":"Components/PythonProvider.js","./PHPProvider":"Components/PHPProvider.js","./PHPProvider.js":"Components/PHPProvider.js","./GS.js":"Components/GS.js","./HaloCell.js":"Components/HaloCell.js","./CellProvider":"Components/CellProvider.js","./CellProvider.js":"Components/CellProvider.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

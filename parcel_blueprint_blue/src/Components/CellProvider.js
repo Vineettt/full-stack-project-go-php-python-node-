@@ -1,4 +1,4 @@
-import react, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
 import { Go } from './Go';
 import { Python } from './Python';
@@ -10,10 +10,10 @@ export const CellContext = createContext();
 
 export default function (props) {
     const [one, setOne] = useState([]);
-    const [two, setTwo] = useState([]);
-    const [three, setThree] = useState([]);
-    const [four, setFour] = useState([]);
-    const [five, setFive] = useState([]);
+    const [two, setTwo] = useState([<PHP />]);
+    const [three, setThree] = useState([<Python />]);
+    const [four, setFour] = useState([<Go />]);
+    const [five, setFive] = useState([<Node />]);
 
     const [updateCell, setUpdateCell] = useState(null);
     const [updateToggle, setUpdateToggle] = useState(true);
